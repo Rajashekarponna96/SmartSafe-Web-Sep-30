@@ -1,16 +1,25 @@
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from '../auth/auth-guard.service';
 
 //Route for content layout with sidebar, navbar and footer.
 
 export const Full_ROUTES: Routes = [
   {
     path: 'dashboard',
-    loadChildren: () => import('../../dashboard/dashboard.module').then(m => m.DashboardModule)
+    loadChildren: () => import('../../dashboard/dashboard.module').then(m => m.DashboardModule),
+    canActivate: [AuthGuard],
+    data: { 
+      roleCode: 'admin'
+    }
   },
   
   {
     path: 'report',
-    loadChildren: () => import('../../report/report.module').then(m => m.ReportModule)
+    loadChildren: () => import('../../report/report.module').then(m => m.ReportModule),
+    canActivate: [AuthGuard],
+    data: { 
+      roleCode: 'admin'
+    }
   },
  
   {

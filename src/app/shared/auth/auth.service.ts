@@ -3,6 +3,13 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class AuthService {
+  hasRoles(expectedRoles: any) {
+    throw new Error('Method not implemented.');
+  }
+  // here you can check if user is authenticated or not through his token 
+  isAuthorized(roleCode: any) {
+    throw new Error('Method not implemented.');
+  }
   token: string;
 
   constructor() {}
